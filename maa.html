@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Mother's Day</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff0f5;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    h1 {
+      color: #c2185b;
+      font-size: 3rem;
+      margin: 20px 0;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #555;
+      max-width: 700px;
+      margin: 20px auto;
+    }
+
+    /* Slideshow container */
+    .slideshow {
+      width: 400px;
+      height: 400px;
+      margin: 0 auto;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .slideshow img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: fade 12s infinite;
+    }
+
+    @keyframes fade {
+      0%, 100% { opacity: 0; }
+      10%, 30% { opacity: 1; }
+      40%, 90% { opacity: 0; }
+    }
+
+    /* Flowering effect */
+    .flower {
+      position: absolute;
+      top: -50px;
+      font-size: 30px;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-style: italic;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌸 Happy Mother's Day 🌸</h1>
+
+  <div class="slideshow">
+    <img src="WhatsApp Image 2025-05-10 at 23.59.35_bcc7c1f2.jpg" style="animation-delay: 0s;">
+    <img src="WhatsApp Image 2025-05-10 at 23.59.36_1a58a4ec.jpg" style="animation-delay: 2s;">
+    <img src="WhatsApp Image 2025-05-10 at 23.59.31_1bde14db.jpg" style="animation-delay: 4s;">
+    <img src="WhatsApp Image 2025-05-10 at 23.59.32_b9a9bc0b.jpg" style="animation-delay: 6s;">
+    <img src="WhatsApp Image 2025-05-10 at 23.59.33_3a318fc9.jpg" style="animation-delay: 8s;">
+    <img src="WhatsApp Image 2025-05-10 at 23.59.34_d85691ea.jpg" style="animation-delay: 10s;">
+
+  </div>
+
+  <p>
+    Dear Mom, thank you for your endless love, strength, and support. <br>
+    You are the sunshine that lights up my life. I love you forever! 💖
+  </p>
+
+  <div class="footer">With love, [Naman]</div>
+
+  <!-- Background music -->
+  <audio id="bg-music" autoplay loop>
+    <source src="Janam Janam-320kbps.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  
+  <script>
+    // This un-mutes and plays audio programmatically for browsers that block autoplay
+    window.addEventListener('DOMContentLoaded', () => {
+      const music = document.getElementById('bg-music');
+      music.volume = 0.5; // Optional: set lower volume
+      music.play().catch(() => {
+        // In case autoplay is blocked, we force play when user scrolls or moves
+        const resume = () => {
+          music.play();
+          window.removeEventListener('click', resume);
+          window.removeEventListener('scroll', resume);
+        };
+        window.addEventListener('click', resume);
+        window.addEventListener('scroll', resume);
+      });
+    });
+  </script>
+  
+
+  <!-- Flowers falling effect -->
+  <script>
+    function createFlower() {
+      const flower = document.createElement('div');
+      flower.classList.add('flower');
+      flower.innerHTML = '🌸';
+      flower.style.left = Math.random() * 100 + 'vw';
+      flower.style.animationDuration = (3 + Math.random() * 5) + 's';
+      document.body.appendChild(flower);
+      setTimeout(() => flower.remove(), 8000);
+    }
+
+    setInterval(createFlower, 300);
+  </script>
+</body>
+</html>
